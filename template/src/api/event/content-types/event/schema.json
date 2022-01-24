@@ -1,0 +1,163 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "locations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::location.location"
+    },
+    "Start_Date": {
+      "type": "datetime",
+      "required": true
+    },
+    "End_Date": {
+      "type": "datetime"
+    },
+    "All_Day": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Recurring_Type": {
+      "type": "enumeration",
+      "enum": [
+        "None",
+        "Daily",
+        "Weekly",
+        "Monthly",
+        "Yearly"
+      ],
+      "required": true,
+      "default": "None"
+    },
+    "Recurring_End": {
+      "type": "datetime"
+    },
+    "Recurring_Weekday": {
+      "type": "enumeration",
+      "enum": [
+        "None",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "default": "None",
+      "required": true
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    },
+    "Heading": {
+      "type": "string"
+    },
+    "Subheading": {
+      "type": "string"
+    },
+    "Body_Copy": {
+      "type": "richtext",
+      "required": true
+    },
+    "Teaser_Copy": {
+      "type": "string"
+    },
+    "RSVP_Email": {
+      "type": "email",
+      "required": false
+    },
+    "RSVP_Name": {
+      "type": "string"
+    },
+    "Featured": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Trending": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Main_Media": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "Additional_Media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "Attachments": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "URL": {
+      "type": "string"
+    },
+    "Priority_Date": {
+      "type": "date"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article",
+      "mappedBy": "events"
+    },
+    "Recurring": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "events"
+    },
+    "attendees": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "admin::user"
+    },
+    "Published_by": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

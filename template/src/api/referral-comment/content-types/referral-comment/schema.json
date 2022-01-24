@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "referral_comments",
+  "info": {
+    "singularName": "referral-comment",
+    "pluralName": "referral-comments",
+    "displayName": "Referral Comment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Message": {
+      "type": "string"
+    },
+    "Rating": {
+      "type": "integer",
+      "max": 0,
+      "min": 5,
+      "default": 0
+    },
+    "Approved": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "Anonymous": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Referral": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::referral.referral",
+      "inversedBy": "Comments"
+    },
+    "User": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

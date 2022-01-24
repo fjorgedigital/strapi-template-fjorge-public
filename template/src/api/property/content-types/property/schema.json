@@ -1,0 +1,218 @@
+{
+  "kind": "collectionType",
+  "collectionName": "properties",
+  "info": {
+    "singularName": "property",
+    "pluralName": "properties",
+    "displayName": "Property",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Property_ID": {
+      "type": "string"
+    },
+    "Property_Type": {
+      "type": "enumeration",
+      "enum": [
+        "General",
+        "Residence",
+        "Agriculture",
+        "Commercial",
+        "Storage_Space",
+        "Available_Land_Assignment",
+        "Unlisted"
+      ],
+      "required": true,
+      "default": "General"
+    },
+    "Sale_Type": {
+      "type": "enumeration",
+      "enum": [
+        "None",
+        "Lease",
+        "Rent",
+        "Sale"
+      ],
+      "required": true,
+      "default": "Sale"
+    },
+    "Listing_Status": {
+      "type": "enumeration",
+      "enum": [
+        "Active",
+        "Available",
+        "Sold",
+        "Unavilable"
+      ],
+      "default": "Active",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": true
+    },
+    "Contact_Name": {
+      "type": "string",
+      "required": true
+    },
+    "Contact_Phone": {
+      "type": "string"
+    },
+    "Contact_Email": {
+      "type": "email"
+    },
+    "Contact_Type": {
+      "type": "enumeration",
+      "enum": [
+        "Phone",
+        "Email",
+        "Phone_and_Email"
+      ],
+      "required": true,
+      "default": "Phone_and_Email"
+    },
+    "Price": {
+      "type": "decimal",
+      "required": false
+    },
+    "Price_Subtext": {
+      "type": "string"
+    },
+    "Subdivision": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "Street_1": {
+      "type": "string",
+      "required": true
+    },
+    "Street_2": {
+      "type": "string"
+    },
+    "City": {
+      "type": "string",
+      "required": true
+    },
+    "State": {
+      "type": "enumeration",
+      "enum": [
+        "AK",
+        "AL",
+        "AR",
+        "AZ",
+        "CA",
+        "CO",
+        "CT",
+        "DE",
+        "FL",
+        "GA",
+        "HI",
+        "IA",
+        "ID",
+        "IL",
+        "IN",
+        "KS",
+        "KY",
+        "LA",
+        "MA",
+        "MD",
+        "ME",
+        "MI",
+        "MN",
+        "MO",
+        "MS",
+        "MT",
+        "NC",
+        "ND",
+        "NE",
+        "NH",
+        "NJ",
+        "NM",
+        "NV",
+        "NY",
+        "OH",
+        "OK",
+        "OR",
+        "PA",
+        "RI",
+        "SC",
+        "SD",
+        "TN",
+        "TX",
+        "UT",
+        "VA",
+        "VT",
+        "WA",
+        "WI",
+        "WV",
+        "WY"
+      ],
+      "required": true,
+      "default": "MN"
+    },
+    "Zipcode": {
+      "type": "string",
+      "required": true
+    },
+    "Lot_ID": {
+      "type": "string"
+    },
+    "Block_ID": {
+      "type": "string"
+    },
+    "Latitude": {
+      "type": "string"
+    },
+    "Longitude": {
+      "type": "string"
+    },
+    "Parcel_Status": {
+      "type": "string"
+    },
+    "Featured": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Featured_Tag": {
+      "type": "string"
+    },
+    "Media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "Attachments": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "Blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "blocks.title-and-copy"
+      ]
+    },
+    "Published_by": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

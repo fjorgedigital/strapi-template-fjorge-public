@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_settings",
+  "info": {
+    "singularName": "user-setting",
+    "pluralName": "user-settings",
+    "displayName": "User Setting",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "show_tutorial": {
+      "type": "boolean",
+      "required": true
+    }
+  }
+}

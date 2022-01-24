@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notifications",
+  "info": {
+    "singularName": "notification",
+    "pluralName": "notifications",
+    "displayName": "Notification"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Message": {
+      "type": "text",
+      "required": true
+    },
+    "Group": {
+      "type": "enumeration",
+      "enum": [
+        "None",
+        "All",
+        "Members",
+        "Youth",
+        "Staff",
+        "Admin"
+      ],
+      "required": true,
+      "default": "None"
+    },
+    "Publish_Date": {
+      "type": "datetime",
+      "required": false
+    },
+    "location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location.location"
+    },
+    "Location_Radius": {
+      "type": "integer",
+      "default": 0
+    },
+    "Thumbnail": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
